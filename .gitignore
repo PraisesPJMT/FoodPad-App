@@ -29,3 +29,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# JetBrains Files
+.idea
+
+# Node Modules
+node_modules
