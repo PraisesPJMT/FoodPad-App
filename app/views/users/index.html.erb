@@ -1,0 +1,6 @@
+<h1>FoodPad App Users</h1>
+<% @users.each do |user| %>
+  <a class="user-box" href="<%= users_show_path(user) %>">
+    <%= user.name %>
+  </a>
+<% end %>
