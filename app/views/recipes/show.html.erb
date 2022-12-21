@@ -1,0 +1,35 @@
+<section  class="main">
+  <h2 class="sub-title"><%= @recipe.name %></h2>
+  <article class="recipe-box">
+    <div class="recipe-prep-box">
+      <p>
+        <b>Preparation time:</b>
+        <%= pluralize(@recipe.preparation_time.strftime('%H'), 'hr') %>:
+        <%= pluralize(@recipe.preparation_time.strftime('%M'), 'min') %>:
+        <%= pluralize(@recipe.preparation_time.strftime('%S'), 'sec') %>
+      </p>
+      <div class="public-box">
+        <span>Public: </span>
+        <%= button_to update_public_user_recipe_path(@recipe.user.id, @recipe.id), method: :patch, class: "#{ @recipe.public ? 'checked' : 'uncheck' }" do %>
+          <div class="ball"></div>
+        <% end %>
+      </div>
+    </div>
+    <div>
+      <b>Cooking time:</b>
+      <%= pluralize(@recipe.cooking_time.strftime('%H'), 'hr') %>:
+      <%= pluralize(@recipe.cooking_time.strftime('%M'), 'min') %>:
+      <%= pluralize(@recipe.cooking_time.strftime('%S'),'sec') %>
+    </div>
+    <p><%= @recipe.description %></p>
+  </article>
+  <div class="buttons">
+    <button class="btn generic-btn">Generate Shopping List</button>
+    <button class="btn generic-btn">Add Ingredient</button>
+  </div>
+  <hr>
+  <%= render "recipes/table" %>
+  <div class="create-recipe-box">
+    <%= button_to "Delete Recipe", user_recipe_path(@recipe.user.id, @recipe.id), method: :delete, class: "btn delete-btn"%>
+  </div>
+</section>
