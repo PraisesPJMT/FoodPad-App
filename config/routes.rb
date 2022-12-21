@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "devise/sessions#new"
+  resources :foods, except: :update
   resources :users, only: %i[index show] do
     resources :recipes, only: %i[index show new create destroy] do
       member do
