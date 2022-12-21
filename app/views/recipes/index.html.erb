@@ -1,0 +1,27 @@
+<section class="main">
+  <h2 class="sub-title"><%= current_user.name %> Recipes</h2>
+  <div class="create-recipe-box">
+    <%= link_to 'Create Recipe', new_user_recipe_path, class: 'btn view-btn' %>
+  </div>
+
+  <div class="recipe-list-box">
+    <% if @recipes.size.positive? %>
+      <% @recipes.each do |recipe| %>
+        <div class="recipe-card">
+          <div class="card-header">
+            <h3 class="sub-sub-title"><%= recipe.name %></h3>
+            <div  class="card-header-btns">
+              <%= button_to "Remove Recipe", user_recipe_path(recipe.user.id, recipe.id), method: :delete, class: "btn delete-btn"%>
+              <a class="btn view-btn" href="/users/<%= current_user.id %>/recipes/<%= recipe.id %>">
+                View Recipe
+              </a>
+            </div>
+          </div>
+          <div class="card-desc"><%= recipe.description %></div>
+        </div>
+      <% end %>
+    <% else %>
+      <p><%= current_user.name %> is yet to create a recipe. Use the 'Create Recipe' button above to create a new recipe</p>
+    <% end %>
+  </div>
+</section>

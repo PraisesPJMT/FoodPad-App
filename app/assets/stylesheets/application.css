@@ -13,3 +13,254 @@
  *= require_tree .
  *= require_self
  */
+
+header {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  padding: 0 0.5rem;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  gap: 1rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #000;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: arial, sans-serif;
+}
+
+.nav-link:hover {
+  color: #666;
+  border-bottom: 3px solid #666;
+}
+
+.logo {
+  text-decoration: none;
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  font-family: arial, sans-serif;
+  padding: 0.5rem 1rem;
+}
+
+.logo:hover {
+  color: #666;
+}
+
+.main {
+  padding: 0.5rem 2rem;
+}
+
+.sub-title {
+  text-align: center;
+}
+
+.header-avatar {
+  text-decoration: none;
+  color: #000;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: arial, sans-serif;
+  border: 3px solid #333;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-avatar:hover {
+  color: #666;
+  border: 3px solid #666;
+}
+
+.recipe-list-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.recipe-card {
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+
+  /* width: 100%; */
+  padding: 1rem;
+  border: 2px solid #333;
+  border-radius: 5px;
+  color: #000;
+}
+
+.create-recipe-box {
+  display: flex;
+  justify-content: end;
+  padding: 1rem;
+}
+
+.card-header-btns {
+  display: flex;
+  gap: 1rem;
+}
+
+.recipe-prep-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Tables */
+
+.recipe-food-table {
+  border-collapse: collapse;
+  margin: 0.5rem auto;
+  font-size: 0.9rem;
+  min-width: 500px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+}
+
+.recipe-food-table thead tr {
+  background: #333;
+  color: #fff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.recipe-food-table th,
+.recipe-food-table td {
+  padding: 6px 15px;
+}
+
+.recipe-food-table tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.recipe-food-table tbody tr:nth-child(even) {
+  background-color: #f3f3f3;
+}
+
+.recipe-food-table tbody tr:last-of-type {
+  border-bottom: 1px solid #333;
+}
+
+.recipe-food-table .action {
+  display: flex;
+  gap: 0.8rem;
+}
+
+/* Buttons */
+
+.sign-link {
+  font-family: arial, sans-serif;
+  font-size: 0.9rem;
+  text-decoration: none;
+  background: #eee;
+  border: 2px solid #666;
+  border-radius: 5px;
+  color: #666;
+  padding: 0.4rem;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.sign-link:hover {
+  background: #666;
+  color: #fff;
+}
+
+.btn {
+  padding: 0.5rem;
+  font-family: arial, sans-serif;
+  font-size: 0.8rem;
+  text-decoration: none;
+  background: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.view-btn {
+  color: #24a0ed;
+  border: 2px solid #24a0ed;
+}
+
+.view-btn:hover {
+  color: #fff;
+  background: #24a0ed;
+}
+
+.delete-btn {
+  color: #8b0000;
+  border: 2px solid #8b0000;
+}
+
+.delete-btn:hover {
+  color: #fff;
+  background: #8b0000;
+}
+
+.create-btn {
+  color: #4caf50;
+  border: 2px solid #4caf50;
+}
+
+.create-btn:hover {
+  color: #fff;
+  background: #4caf50;
+}
+
+.generic-btn {
+  color: #666;
+  border: 2px solid #666;
+}
+
+.generic-btn:hover {
+  color: #fff;
+  background: #666;
+}
+
+.public-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.checked {
+  width: 40px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  background: #4caf50;
+  border: 3px solid #4caf50;
+  padding: 0;
+}
+
+.uncheck {
+  width: 40px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  background: #8b0000;
+  border: 3px solid #8b0000;
+  padding: 0;
+}
+
+.ball {
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+}

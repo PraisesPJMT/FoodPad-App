@@ -1,0 +1,39 @@
+<table class="recipe-food-table">
+  <thead>
+  <tr>
+    <th>Food</th>
+    <th>Quantity</th>
+    <th>Value</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Apple</td>
+    <td>20g</td>
+    <td>$100</td>
+    <td class="action">
+      <%= button_to 'modify', class: 'btn delete-btn' %>
+      <%= button_to 'Remove', class: 'btn view-btn' %>
+    </td>
+  <tr>
+  <tr>
+    <td>Pineapple</td>
+    <td>10g</td>
+    <td>$10</td>
+    <td class="action">
+      <%= button_to 'modify', class: 'table-btn delete-btn' %>
+      <%= button_to 'Remove', class: 'btn view-btn' %>
+    </td>
+  <tr>
+  <tr>
+    <td>Chicken</td>
+    <td>2 units</td>
+    <td>$400</td>
+    <td class="action">
+      <%= button_to 'modify', class: 'btn delete-btn' %>
+      <%= button_to 'Remove', class: 'btn view-btn' %>
+    </td>
+  <tr>
+  </tbody>
+</table>

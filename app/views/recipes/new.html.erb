@@ -1,0 +1,33 @@
+<section class="main">
+  <h2 class="sub-title">Create New Recipe</h2>
+  <%= form_with model: @recipe, url: user_recipes_path(current_user.id, @recipe.id), method: :post, scope: :new_recipe do |f| %>
+    <div>
+      <%= f.label :name, 'Recipe Name: ', class: 'label' %>
+      <%= f.text_field :name, class: 'field' %>
+    </div>
+    <div>
+      <%= f.label :description, 'Recipe Description:', class: 'label' %>
+      <%= f.text_area :description, class: 'field' %>
+    </div>
+    <div>
+      <%= f.label :preparation_time, 'Preparation Time [HH:MM:SS]', class: 'label' %>
+      <%= f.text_field :preparation_time, class: 'field' %>
+    </div>
+    <div>
+      <%= f.label :cooking_time, 'Cooking Time [HH:MM:SS]', class: 'label' %>
+      <%= f.text_field :cooking_time, class: 'field' %>
+    </div>
+    <div>
+      <span>Is this recipe public?</span>
+      <div>
+        <%= f.label :public, 'Public: ' %>
+        <%= f.radio_button :public, true %>
+      </div>
+      <div>
+        <%= f.label :public, 'Private: ' %>
+        <%= f.radio_button :public, false %>
+      </div>
+    </div>
+    <%= f.submit 'Submit', class: 'btn create-btn' %>
+  <% end %>
+</section>
