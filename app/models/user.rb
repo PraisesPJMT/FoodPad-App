@@ -6,5 +6,14 @@ class User < ApplicationRecord
          :confirmable
   has_many :foods, dependent: :destroy
   has_many :recipes, dependent: :destroy
+
   validates :name, presence: true
+
+  # User::Roles
+  # The available roles
+  ROLES = %i[admin default].freeze
+
+  def is?(requested_role)
+    role == requested_role.to_s
+  end
 end

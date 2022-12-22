@@ -10,8 +10,12 @@
       </p>
       <div class="public-box">
         <span>Public: </span>
-        <%= button_to update_public_recipe_path(@recipe.id), method: :patch, class: "#{ @recipe.public ? 'checked' : 'uncheck' }" do %>
-          <div class="ball"></div>
+        <% if can? :destroy, @recipe %>
+          <%= button_to update_public_recipe_path(@recipe.id), method: :patch, class: "#{ @recipe.public ? 'checked' : 'uncheck' }" do %>
+            <div class="ball"></div>
+          <% end %>
+        <% else %>
+          <span class="public">Public</span>
         <% end %>
       </div>
     </div>
@@ -23,13 +27,17 @@
     </div>
     <p><%= @recipe.description %></p>
   </article>
-  <div class="buttons">
-    <%= link_to 'Generate shopping list', recipe_generate_shopping_list_index_path(@recipe.id), class: 'btn generic-btn' %>
-    <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe.id), class: "btn generic-btn" %>
-  </div>
+  <% if can? :destroy, @recipe %>
+    <div class="buttons">
+      <%= link_to 'Generate shopping list', recipe_generate_shopping_list_index_path(@recipe.id), class: 'btn generic-btn' %>
+      <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe.id), class: "btn generic-btn" %>
+    </div>
+  <% end %>
   <hr>
   <%= render "recipes/table" %>
-  <div class="create-recipe-box">
-    <%= button_to "Delete Recipe", recipe_path(@recipe.id), method: :delete, class: "btn delete-btn"%>
-  </div>
+  <% if can? :destroy, @recipe %>
+    <div class="create-recipe-box">
+      <%= button_to "Delete Recipe", recipe_path(@recipe.id), method: :delete, class: "btn delete-btn"%>
+    </div>
+  <% end %>
 </section>

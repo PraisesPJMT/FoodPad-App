@@ -45,6 +45,9 @@ gem 'bootsnap', require: false
 # user authentication
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
+# User authorization
+gem 'cancancan'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -58,9 +61,9 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem 'bullet'
   gem 'letter_opener'
   gem 'web-console'
-  gem 'bullet'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"

@@ -163,6 +163,10 @@ nav {
   gap: 0.8rem;
 }
 
+.public {
+  padding: 0.1rem 0.3rem;
+}
+
 /* Buttons */
 
 .sign-link {
@@ -213,7 +217,8 @@ nav {
   background: #8b0000;
 }
 
-.create-btn {
+.create-btn,
+.public {
   color: #4caf50;
   border: 2px solid #4caf50;
 }
@@ -223,7 +228,8 @@ nav {
   background: #4caf50;
 }
 
-.generic-btn {
+.generic-btn,
+.dumb-btn {
   color: #666;
   border: 2px solid #666;
 }
