@@ -1,39 +1,29 @@
-<table class="recipe-food-table">
-  <thead>
-  <tr>
-    <th>Food</th>
-    <th>Quantity</th>
-    <th>Value</th>
-    <th>Actions</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Apple</td>
-    <td>20g</td>
-    <td>$100</td>
-    <td class="action">
-      <%= button_to 'modify', class: 'btn delete-btn' %>
-      <%= button_to 'Remove', class: 'btn view-btn' %>
-    </td>
-  <tr>
-  <tr>
-    <td>Pineapple</td>
-    <td>10g</td>
-    <td>$10</td>
-    <td class="action">
-      <%= button_to 'modify', class: 'table-btn delete-btn' %>
-      <%= button_to 'Remove', class: 'btn view-btn' %>
-    </td>
-  <tr>
-  <tr>
-    <td>Chicken</td>
-    <td>2 units</td>
-    <td>$400</td>
-    <td class="action">
-      <%= button_to 'modify', class: 'btn delete-btn' %>
-      <%= button_to 'Remove', class: 'btn view-btn' %>
-    </td>
-  <tr>
-  </tbody>
-</table>
+<section>
+  <% if @recipe_foods.size.positive? %>
+    <table class="recipe-food-table">
+      <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @recipe_foods.each do |item| %>
+        <tr>
+          <td><%= item.food.name%></th>
+          <td><%= item.quantity%><%= item.food.measurement_unit  %></td>
+          <td>$<%= item.quantity * item.food.price %></td>
+          <td class="action">
+            <%=button_to "Delete", recipe_recipe_food_path(recipe_id: @recipe.id, id: item.id), method: :delete, class:"btn delete-btn"%>
+            <%=link_to "Modify", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id: item.id), class:"btn view-btn"%>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>No ingredient has been added yet! Please use the <b>Add Ingredient</b> button above to add an ingredient.</p>
+  <% end %>
+</section>
