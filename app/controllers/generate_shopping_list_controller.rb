@@ -3,7 +3,9 @@ class GenerateShoppingListController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @recipe_foods = @recipe.recipe_foods.includes(:food).order(:id)
 
-    @missing_ingredients = @recipe_foods.select { |ingredient| ingredient.quantity.to_i > ingredient.food.quantity.to_i }
+    @missing_ingredients = @recipe_foods.select do |ingredient|
+      ingredient.quantity.to_i > ingredient.food.quantity.to_i
+    end
     @total_price = get_total_price
   end
 
