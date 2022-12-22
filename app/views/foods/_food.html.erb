@@ -1,4 +1,4 @@
-<table class="table">
+<table class="recipe-food-table">
     <thead>
       <tr>
         <th scope="col">Name</th>
@@ -15,7 +15,7 @@
           <td>$<%= food.price%></td>
           <td><%= food.quantity%></td>
           <td>
-              <%= button_to "Delete", food_path(food.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+              <%= button_to "Delete", food_path(food.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn delete-btn" %>
           </td>
         </tr>
     </tbody>

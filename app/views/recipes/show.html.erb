@@ -24,7 +24,7 @@
     <p><%= @recipe.description %></p>
   </article>
   <div class="buttons">
-    <button class="btn generic-btn">Generate Shopping List</button>
+    <%= link_to 'Generate shopping list', recipe_generate_shopping_list_index_path(@recipe.id), class: 'btn generic-btn' %>
     <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe.id), class: "btn generic-btn" %>
   </div>
   <hr>

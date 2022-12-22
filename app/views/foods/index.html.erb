@@ -1,9 +1,9 @@
-<h1>Foods</h1>
+<h2 class="sub-title">Foods</h2>
 
 
-<%= link_to "Add food", new_food_path, class: "navlink" %>
+<%= link_to "Add food", new_food_path, class: "navlink view-btn" %>
 <div class="table-container">
-<table class="table">
+<table class="recipe-food-table">
     <thead>
       <tr>
         <th scope="col">Name</th>
@@ -21,7 +21,7 @@
           <td>$<%= food.price%></td>
           <td><%= food.quantity%></td>
           <td>
-              <%= button_to "Delete", food_path(food.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+              <%= button_to "Delete", food_path(food.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn delete-btn" %>
           </td>
         </tr> 
   <% end %>

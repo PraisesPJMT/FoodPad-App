@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       patch :update_public
     end
     resources :recipe_foods, only: %i[new edit create destroy update]
+    resources :generate_shopping_list, only: [:index]
   end
   resources :public_recipes, only: [:index]
 end
