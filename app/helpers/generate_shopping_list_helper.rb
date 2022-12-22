@@ -1,0 +1,2 @@
+module GenerateShoppingListHelper
+end
