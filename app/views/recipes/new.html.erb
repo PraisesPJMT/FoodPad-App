@@ -1,23 +1,23 @@
 <section class="main">
   <h2 class="sub-title">Create New Recipe</h2>
-  <%= form_with model: @recipe, url: user_recipes_path(current_user.id, @recipe.id), method: :post, scope: :new_recipe do |f| %>
-    <div>
+  <%= form_with model: @recipe, url: recipes_path(@recipe.id), method: :post, scope: :new_recipe do |f| %>
+    <div class="form-box">
       <%= f.label :name, 'Recipe Name: ', class: 'label' %>
       <%= f.text_field :name, class: 'field' %>
     </div>
-    <div>
+    <div class="form-box">
       <%= f.label :description, 'Recipe Description:', class: 'label' %>
       <%= f.text_area :description, class: 'field' %>
     </div>
-    <div>
+    <div class="form-box">
       <%= f.label :preparation_time, 'Preparation Time [HH:MM:SS]', class: 'label' %>
       <%= f.text_field :preparation_time, class: 'field' %>
     </div>
-    <div>
+    <div class="form-box">
       <%= f.label :cooking_time, 'Cooking Time [HH:MM:SS]', class: 'label' %>
       <%= f.text_field :cooking_time, class: 'field' %>
     </div>
-    <div>
+    <div class="form-box-col">
       <span>Is this recipe public?</span>
       <div>
         <%= f.label :public, 'Public: ' %>
@@ -28,6 +28,8 @@
         <%= f.radio_button :public, false %>
       </div>
     </div>
-    <%= f.submit 'Submit', class: 'btn create-btn' %>
+    <div class="form-box-col">
+      <%= f.submit 'Submit', class: 'btn create-btn' %>
+    </div>
   <% end %>
 </section>

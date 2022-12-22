@@ -5,7 +5,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
-    # @recipe_foods = @recipe.recipe_foods.includes(:food, :recipe).order(:id)
+    @recipe_foods = @recipe.recipe_foods.includes(:food, :recipe).order(:id)
   end
 
   def new
@@ -19,7 +19,7 @@ class RecipesController < ApplicationController
                      else
                        'Failed to update recipe.'
                      end
-    redirect_to "/users/#{current_user.id}/recipes/#{recipe.id}"
+    redirect_to "/recipes/#{recipe.id}"
   end
 
   def create
@@ -27,7 +27,7 @@ class RecipesController < ApplicationController
     recipe.user = current_user
 
     if recipe.save
-      redirect_to "/users/#{current_user.id}/recipes/#{recipe.id}"
+      redirect_to "/recipes/#{recipe.id}"
       flash[:notice] = 'Recipe created Successfully'
     else
       redirect_to recipe
@@ -38,7 +38,7 @@ class RecipesController < ApplicationController
   def destroy
     recipe = Recipe.find(params[:id])
     if recipe.destroy
-      redirect_to "/users/#{current_user.id}/recipes"
+      redirect_to '/recipes'
       flash[:success] = 'Recipe deleted Successfully'
     else
       redirect_to recipe

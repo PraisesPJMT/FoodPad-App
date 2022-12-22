@@ -1,4 +1,4 @@
 <h1><%= @user.name %> Details</h1>
 <p>Details for <%= @user.name %></p>
 <button type="button" class="btn generic-btn">See Foods by User</button>
-<%= link_to "See Recipes by User", user_recipes_path(current_user), class: "btn generic-btn" %>
+<%= link_to "See Recipes by User", recipes_path, class: "btn generic-btn" %>
