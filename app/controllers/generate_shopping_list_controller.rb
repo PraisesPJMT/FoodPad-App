@@ -6,12 +6,12 @@ class GenerateShoppingListController < ApplicationController
     @missing_ingredients = @recipe_foods.select do |ingredient|
       ingredient.quantity.to_i > ingredient.food.quantity.to_i
     end
-    @total_price = get_total_price
+    @total_price = obtain_total_price
   end
 
   private
 
-  def get_total_price
+  def obtain_total_price
     total_price = 0
     @missing_ingredients.each do |ingredient|
       price = ingredient.food.price.to_i * (ingredient.quantity.to_i - ingredient.food.quantity.to_i)
