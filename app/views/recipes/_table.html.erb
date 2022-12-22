@@ -10,7 +10,7 @@
       </tr>
       </thead>
       <tbody>
-      <% @recipe_foods.each do |item| %>
+      <% @recipe_foods.includes([:food]).each do |item| %>
         <tr>
           <td><%= item.food.name%></th>
           <td><%= item.quantity%><%= item.food.measurement_unit  %></td>
