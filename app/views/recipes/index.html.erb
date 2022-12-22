@@ -1,7 +1,7 @@
 <section class="main">
   <h2 class="sub-title"><%= current_user.name %> Recipes</h2>
   <div class="create-recipe-box">
-    <%= link_to 'Create Recipe', new_user_recipe_path, class: 'btn view-btn' %>
+    <%= link_to 'Create Recipe', new_recipe_path, class: 'btn view-btn' %>
   </div>
 
   <div class="recipe-list-box">
@@ -11,8 +11,8 @@
           <div class="card-header">
             <h3 class="sub-sub-title"><%= recipe.name %></h3>
             <div  class="card-header-btns">
-              <%= button_to "Remove Recipe", user_recipe_path(recipe.user.id, recipe.id), method: :delete, class: "btn delete-btn"%>
-              <a class="btn view-btn" href="/users/<%= current_user.id %>/recipes/<%= recipe.id %>">
+              <%= button_to "Remove Recipe", recipe_path(recipe.id), method: :delete, class: "btn delete-btn"%>
+              <a class="btn view-btn" href="/recipes/<%= recipe.id %>">
                 View Recipe
               </a>
             </div>

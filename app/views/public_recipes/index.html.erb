@@ -2,14 +2,14 @@
   <h2 class="sub-title">Public Recipes</h2>
   <% unless @recipes.size.positive? %>
     <div class="create-recipe-box">
-      <%= link_to 'Create Recipe', new_user_recipe_path(current_user.id), class: 'btn view-btn' %>
+      <%= link_to 'Create Recipe', new_recipe_path(current_user.id), class: 'btn view-btn' %>
     </div>
   <% end %>
 
   <div class="recipe-list-box">
     <% if @recipes.size.positive? %>
       <% @recipes.each do |recipe| %>
-        <a class="recipe-card" href="/users/<%= recipe.user.id %>/recipes/<%= recipe.id %>">
+        <a class="recipe-card" href="/recipes/<%= recipe.id %>">
           <div class="card-header">
             <h3 class="sub-sub-title"><%= recipe.name %></h3>
             <p>By: <%= recipe.user.name %></p>
