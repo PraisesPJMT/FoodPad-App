@@ -11,7 +11,9 @@
           <div class="card-header">
             <h3 class="sub-sub-title"><%= recipe.name %></h3>
             <div  class="card-header-btns">
-              <%= button_to "Remove Recipe", recipe_path(recipe.id), method: :delete, class: "btn delete-btn"%>
+              <% if can? :destroy, recipe %>
+                <%= button_to "Remove Recipe", recipe_path(recipe.id), method: :delete, class: "btn delete-btn"%>
+              <% end %>
               <a class="btn view-btn" href="/recipes/<%= recipe.id %>">
                 View Recipe
               </a>

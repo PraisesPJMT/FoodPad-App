@@ -10,14 +10,18 @@
       </tr>
       </thead>
       <tbody>
-      <% @recipe_foods.each do |item| %>
+      <% @recipe_foods.includes([:food]).each do |item| %>
         <tr>
           <td><%= item.food.name%></th>
           <td><%= item.quantity%><%= item.food.measurement_unit  %></td>
           <td>$<%= item.quantity * item.food.price %></td>
           <td class="action">
-            <%=button_to "Delete", recipe_recipe_food_path(recipe_id: @recipe.id, id: item.id), method: :delete, class:"btn delete-btn"%>
-            <%=link_to "Modify", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id: item.id), class:"btn view-btn"%>
+            <% if can? :destroy, @recipe %>
+              <%=button_to "Delete", recipe_recipe_food_path(recipe_id: @recipe.id, id: item.id), method: :delete, class:"btn delete-btn"%>
+              <%=link_to "Modify", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id: item.id), class:"btn view-btn"%>
+            <% else %>
+            ...
+            <% end %>
           </td>
         </tr>
       <% end %>
