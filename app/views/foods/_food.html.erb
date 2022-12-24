@@ -1,0 +1,26 @@
+<table class="recipe-food-table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Measurement</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr id="<%= food %>">
+          <td><%= food.name%></td>
+          <td><%= food.measurement_unit%></td>
+          <td>$<%= food.price%></td>
+          <td><%= food.quantity%></td>
+          <td>
+            <% if can? :destroy, @food %>
+              <%= button_to "Delete", food_path(food.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn delete-btn" %>
+            <% else %>
+            <button type="button" class="btn dumb-btn">...</button>
+            <% end %>
+          </td>
+        </tr>
+    </tbody>
+  </table>

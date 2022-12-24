@@ -1,0 +1,33 @@
+<section  class="main">
+  <h2 class="sub-title">Public Recipes</h2>
+  <% unless @recipes.size.positive? %>
+    <div class="create-recipe-box">
+      <%= link_to 'Create Recipe', new_recipe_path(current_user.id), class: 'btn view-btn' %>
+    </div>
+  <% end %>
+
+  <div class="recipe-list-box">
+    <% if @recipes.size.positive? %>
+      <% @recipes.each do |recipe| %>
+        <a class="recipe-card" href="/recipes/<%= recipe.id %>">
+          <div class="card-header">
+            <h3 class="sub-sub-title"><%= recipe.name %></h3>
+            <p>By: <%= recipe.user.name %></p>
+          </div>
+          <div class="card-desc">
+            <p>
+              <b>Total food items:</b>
+              <%= @ingredients_count %>:
+            </p>
+            <p>
+              <b>Total price: $</b>
+              <%= @ingredients_cost %>:
+            </p>
+          </div>
+        </a>
+      <% end %>
+    <% else %>
+      <p>No recipe has been added yet. Use the 'Create Recipe' button above to create a new recipe</p>
+    <% end %>
+  </div>
+</section>

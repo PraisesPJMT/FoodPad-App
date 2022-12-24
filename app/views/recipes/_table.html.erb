@@ -1,0 +1,33 @@
+<section>
+  <% if @recipe_foods.size.positive? %>
+    <table class="recipe-food-table">
+      <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @recipe_foods.includes([:food]).each do |item| %>
+        <tr>
+          <td><%= item.food.name%></th>
+          <td><%= item.quantity%><%= item.food.measurement_unit  %></td>
+          <td>$<%= item.quantity * item.food.price %></td>
+          <td class="action">
+            <% if can? :destroy, @recipe %>
+              <%=link_to "Modify", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id: item.id), class:"btn view-btn"%>
+              <%=button_to "Remove", recipe_recipe_food_path(recipe_id: @recipe.id, id: item.id), method: :delete, class:"btn delete-btn"%>
+            <% else %>
+            ...
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>No ingredient has been added yet! Please use the <b>Add Ingredient</b> button above to add an ingredient.</p>
+  <% end %>
+</section>

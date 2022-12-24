@@ -1,0 +1,33 @@
+<section class="main">
+  <h2 class="sub-title">Shopping List </h2>
+
+  <div class="shopping-box">
+    <h3>Amount of food items to buy: <%= @missing_ingredients.length %> </h3>
+    <h3>Total price: <%= @total_price %></h3>
+  </div>
+
+  <table class="recipe-food-table">
+    <thead>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @missing_ingredients.each do |ingredient|%>
+      <tr>
+        <td><%= ingredient.food.name%></th>
+        <td><%= ingredient.quantity.to_i - ingredient.food.quantity.to_i%><%= ingredient.food.measurement_unit  %></td>
+        <td>$<%= (ingredient.quantity.to_i - ingredient.food.quantity.to_i) * ingredient.food.price.to_i %></td>
+      </tr>
+
+      </tbody>
+      </div>
+    <%end%>
+  </table>
+  <div class="create-recipe-box">
+    <%=link_to 'Back to Recipe', recipe_path(@recipe.id), class:"btn generic-btn"%>
+  </div>
+</section>
