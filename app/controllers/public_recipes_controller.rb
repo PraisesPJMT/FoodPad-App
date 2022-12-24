@@ -19,5 +19,4 @@ class PublicRecipesController < ApplicationController
     end
     cost
   end
-
 end
