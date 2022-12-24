@@ -26,24 +26,23 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
-    user ||= User.new
+    user ||= User.new # guest user (not logged in)
+    if user.role == 'admin'
+      can :manage, :all
+    else
+      can :read, Recipe do |recipe|
+        recipe.user == user || recipe.public
+      end
 
-    can :read, :all
-    can :create, :all
-    can(:destroy, Food, user:)
-    can(:destroy, Recipe, user:)
-    can(:destroy, RecipeFood, user:)
-    return unless user.is?(:admin)
+      can [:update, :destroy], Recipe do |recipe|
+        recipe.user == user
+      end
 
-    can :manage, :all
-
-    # return unless user.present?
-    #
-    # can(:manage, Food, user:)
-    # can(:manage, Recipe, user:)
-    # can :manage, RecipeFood do |food_ingredient|
-    #   food_ingredient.recipe.user == user
-    # end
-    # can :read, :all
+      can :read, Food
+      can :destroy, Food do |food|
+        food.user.id == user.id
+      end
+      can %i[create], :all
+    end
   end
 end
