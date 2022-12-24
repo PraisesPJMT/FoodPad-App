@@ -16,16 +16,12 @@
           </div>
           <div class="card-desc">
             <p>
-              <b>Preparation time:</b>
-              <%= pluralize(recipe.preparation_time.strftime('%H'), 'hr') %>:
-              <%= pluralize(recipe.preparation_time.strftime('%M'), 'min') %>:
-              <%= pluralize(recipe.preparation_time.strftime('%S'), 'sec') %>
+              <b>Total food items:</b>
+              <%= @ingredients_count %>:
             </p>
             <p>
-              <b>Cooking time:</b>
-              <%= pluralize(recipe.cooking_time.strftime('%H'), 'hr') %>:
-              <%= pluralize(recipe.cooking_time.strftime('%M'), 'min') %>:
-              <%= pluralize(recipe.cooking_time.strftime('%S'),'sec') %>
+              <b>Total price: $</b>
+              <%= @ingredients_cost %>:
             </p>
           </div>
         </a>
